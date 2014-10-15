@@ -1,0 +1,77 @@
+-- Estructura de tabla para la tabla `cursos`
+--
+ 
+CREATE TABLE IF NOT EXISTS `cursos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `curso` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `precio` decimal(19,4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=2 ;
+ 
+--
+-- Volcado de datos para la tabla `cursos`
+--
+ 
+INSERT INTO `cursos` (`id`, `curso`, `precio`) VALUES
+(1, 'PHP', 150.0000);
+ 
+-- --------------------------------------------------------
+ 
+--
+-- Estructura de tabla para la tabla `cursos_users`
+--
+ 
+CREATE TABLE IF NOT EXISTS `cursos_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `curso_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
+ 
+-- --------------------------------------------------------
+ 
+--
+-- Estructura de tabla para la tabla `dnis`
+--
+ 
+CREATE TABLE IF NOT EXISTS `dnis` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `numero` varchar(14) COLLATE utf8_spanish_ci NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
+ 
+-- --------------------------------------------------------
+ 
+--
+-- Estructura de tabla para la tabla `estados`
+--
+ 
+CREATE TABLE IF NOT EXISTS `estados` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(2) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=2 ;
+ 
+--
+-- Volcado de datos para la tabla `estados`
+--
+ 
+INSERT INTO `estados` (`id`, `codigo`, `nombre`) VALUES
+(1, 'ES', 'Spain');
+ 
+-- --------------------------------------------------------
+ 
+--
+-- Estructura de tabla para la tabla `users`
+--
+ 
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `estado_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;

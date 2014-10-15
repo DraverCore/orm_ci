@@ -1,5 +1,6 @@
 <?php
 
+$autoload['libraries'] = array('database','datamapper');
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -191,6 +192,25 @@ if (defined('ENVIRONMENT'))
 		define('APPPATH', BASEPATH.$application_folder.'/');
 	}
 
+	/*
+
+	$enlace = mysql_connect('localhost', 'usuario_mysql', 'contraseña_mysql');
+		if (!$enlace) {
+    		die('No pudo conectarse: ' . mysql_error());
+			}
+
+	$sql = 'CREATE DATABASE IF NOT EXISTS orm_ci';
+		if (mysql_query($sql, $enlace)) {
+    		echo "La base de datos mi_bd fue creada satisfactoriamente\n";
+    		} 	
+    		else {
+    			echo 'Error al crear la base de datos: ' . mysql_error() . "\n";
+			}
+
+	mysql_close($enlace);
+	*/
+
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
@@ -199,8 +219,9 @@ if (defined('ENVIRONMENT'))
  * And away we go...
  *
  */
-
+require_once APPPATH. 'thrid_party/datamapper/bootstrap.php';
 require_once BASEPATH.'core/CodeIgniter.php';
 
 /* End of file index.php */
 /* Location: ./index.php */
+?>
